@@ -1,0 +1,11 @@
+site_name: Blackend Docs
+site_url: https://github.com/FutureMapper/blackend
+site_description: Documentation for the blackend django app
+site_favicon: favicon.ico
+copyright: MIT
+
+pages:
+- Home: index.md
+- About: about.md
+- Contributing : Contributing.md
+theme: flatly

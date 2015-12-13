@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+{% block styles %}
+    {% include "_styles.html" %}
+{% endblock %}
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top topnav" role="navigation">
+        <div class="container topnav">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand topnav" href="#">FutureMapper</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#about">About</a>
+                    </li>
+                    <li>
+                        <a href="#docs">Docs</a>
+                    </li>                    
+                    <li>
+                      {% if user.is_authenticated %}
+                        <a href="#Profile">Hi {{user}}!</a>
+                      {% else %} 
+                        <a href="{% url 'account_login' %}">Profile</a>
+                      {% endif %}                 
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+
+    <!-- Header -->
+    <a name="about"></a>
+    <div class="intro-header" >
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="intro-message">
+                        <h1>Map Your Courses</h1>
+                        <h3></h3>
+                        <hr class="intro-divider">
+                        <ul class="list-inline">
+                            <li>
+                            {% if user.is_authenticated %}
+                                <a href="{% url 'account_logout' %}"><button type="button" class="btn btn-danger btn-lg btn-flat">Logout</button></a>
+                            {% else %}    
+                                <a href="{% url 'account_login' %}"><button type="button" class="btn btn-primary btn-lg btn-flat">Log In</button></a>
+                            {% endif %}
+                            </li>
+                            <li>
+                                <a href="{% url 'account_signup' %}"><button type="button" class="btn btn-warning btn-lg btn-flat">SignUp</button></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- /.container -->
+
+    </div>
+    <!-- /.intro-header -->
+
+    <!-- Page Content -->
+
+	<a  name="services"></a>
+
+    <div class="content-section-a">
+
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-5 col-sm-6">
+                    <hr class="section-heading-spacer">
+                    <div class="clearfix"></div>
+                    <h2 class="section-heading">Lets map your Future<br>Stay ahead</h2>
+                    <p class="lead">We can recommend you subjects and courses to help you follow your
+                        intrest and stay ahead in your career and happiness.</p>
+                </div>
+                <div class="col-lg-5 col-lg-offset-2 col-sm-6">
+                    <img class="img-responsive" src="/site_media/media/img/idea.png" alt="">
+                </div>
+            </div>
+
+        </div>
+        <!-- /.container -->
+
+    </div>
+    <!-- /.content-section-a -->
+
+	<a  name="contact"></a>
+    <div class="banner">
+
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-6">
+                    <h2>Connect to FutureMapper:</h2>
+                </div>
+                <div class="col-lg-6">
+                    <ul class="list-inline banner-social-buttons">
+                        <li>
+                            <a href="#" class="btn btn-danger btn-lg"><i class="fa fa-linkedin fa-fw"></i> <span class="network-name">Google</span></a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/FutureMapper/blackend" class="btn btn-default btn-lg"><i class="fa fa-github fa-fw"></i> <span class="network-name">Github</span></a>
+                        </li>
+                        <li>
+                            <a href="#" class="btn btn-success btn-lg"><i class="fa fa-linkedin fa-fw"></i> <span class="network-name">Docs</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+        <!-- /.container -->
+
+    </div>
+    <!-- /.banner -->
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <ul class="list-inline">
+                        <li>
+                            <a href="#">Home</a>
+                        </li>
+                        <li class="footer-menu-divider">&sdot;</li>
+                        <li>
+                            <a href="#about">About</a>
+                        </li>
+                        <li class="footer-menu-divider">&sdot;</li>
+                        <li>
+                            <a href="#about">Docs</a>
+                        </li>                        
+                        <li class="footer-menu-divider">&sdot;</li>
+                        <li>
+                            <a href="#contact">Contact</a>
+                        </li>
+                    </ul>
+                    <p class="copyright text-muted small">Copyright &copy; Your Company 2014. All Rights Reserved</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+<!-- scripts -->
+{% block scripts %}
+    {% include "_scripts.html" %}
+{% endblock %}
+
+</body>
+
+</html>
